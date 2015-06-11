@@ -56,6 +56,7 @@ exports.handler =
         		pg.connect(conString, function(err,client){
         		if(err){
         			return console.log("Connection Error.", err);
+                    context.done("Fatal Error");
         		}
         		console.log("Connection Established.");
         		client.query(queryTextInsert, [i.EmailID.S, i.Name.S, i.KWH.N * i.Cost.N], function(err,result){
